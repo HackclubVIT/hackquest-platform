@@ -1,0 +1,100 @@
+{% layout "index.liquid" %}
+
+{% block main %}
+  <div class="maincontainer">
+    <form class="form center" method="post">
+      <h1 class="center bold">Sign Up</h1>
+      <label for="username" class="bold">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="textbox">
+      <label for="email" class="bold">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="textbox">
+      <label for="password" class=" bold">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="textbox">
+      <input
+        type="submit"
+        value="Sign Up"
+        class="btn">
+      <a href="./signin.html" class="center link">Already have an account ? Sign in</a>
+      {% if error %}
+        <p class="center error">{{ error }}</p>
+      {% endif %}
+    </form>
+  </div>
+{% endblock %}
+
+{% block styles %}
+  <style>
+    .bold {
+      font-weight: bold;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px;
+      width: 25%;
+    }
+
+    .textbox {
+      height: 2rem;
+      background-color: rgba(255, 255, 255, 0.3);
+      border: 0;
+      border-radius: 2px;
+    }
+
+    .btn {
+      margin: 8px auto;
+      height: 3rem;
+      border: 0;
+      font-size: larger;
+      border-radius: 1rem;
+      background: linear-gradient(90deg, rgba(243, 115, 49, 1) 0%, rgba(236, 54, 77, 1) 100%);
+      font-weight: bold;
+      transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
+    }
+
+    .btn:hover {
+      scale: 1.05;
+      box-shadow: 1px 1px 5px 1px rgba(243, 115, 49, 0.3);
+    }
+
+    .link {
+      color: white;
+    }
+
+    .center {
+      margin: auto;
+    }
+
+    .maincontainer {
+      display: flex;
+      flex-direction: column;
+      height: 50vh;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .error {
+      color: red;
+    }
+
+    @media screen and (max-width: 768px) {
+      .form {
+        width: 75%;
+      }
+    }
+  </style>
+{% endblock %}

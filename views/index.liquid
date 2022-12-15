@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackquest</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <img
+            class="logo-img"
+            src="/images/logo.png"
+            alt="hackclub-logo">
+        </div>
+        <ul class="nav-content">
+          <li class="nav-tags">
+            <a href="/">About</a>
+          </li>
+          <li class="nav-tags">
+            <a href="/play">Play</a>
+          </li>
+          <li class="nav-tags">
+            <a href="/leaderboard">Leaderboard</a>
+          </li>
+          {% if username != null %}
+            <li class="nav-tags">{{ username }}</li>
+            <li class="nav-tags">
+              <a href="/signout">Sign out</a>
+            </li>
+          {% else %}
+            <li class="nav-tags">
+              <a href="/signin">Sign in</a>
+            </li>
+            <li class="nav-tags">
+              <a href="/signup">Sign up</a>
+            </li>
+          {% endif %}
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+    {% block main %}
+      <main>
+        <div class="land-page">
+          <div class="left-side">
+            <div>
+              <h1 class="content-heading">HackQuest</h1>
+              <p class="content">
+                HackQuest is an event by HackClub VITC,
+                <p>Lorem ipsum dolor, I don't remember the
+                </p>
+                <p>rest.... HackQuest is an event by HackClub
+                </p>
+                <p>VITC, Lorem ipsum dolor, I don't remember</p>
+                the rest....
+              </p>
+            </div>
+            <div class="play-btn">
+              <a href="/play">
+                <button class="play">Play</button>
+              </a>
+            </div>
+          </div>
+          <div class="right-side">
+            <div>
+              <div class="eclipse"></div>
+              <div class="blur-design"></div>
+            </div>
+          </div>
+        </div>
+        <div class="hackclub-flag">
+          <img
+            class="hc-img"
+            src="/images/hackclub.png"
+            alt="flag">
+        </div>
+        <div class="GameStructureAndGameFlow">
+          <div class="gameStructure">
+            <p class="gameStructureHeading">Game Structure</p>
+            <p class="gameStructureContent">
+              The game will contain of
+              <strong>10 theme-based questions</strong>. On solving each
+              question, the participants will receive a
+              <strong>part of a mosaic</strong>
+              which they will use to decode a complete picture. The team needs to submit the mosaic to a location which will be the answer to a riddle, provided after the final question. The team which gets
+              <strong>most points</strong>
+              at the end of the game will be declared the winner (in case of a tie).
+            </p>
+          </div>
+          <div class="gameFlow">
+            <p class="gameFlowHeading">Game Flow</p>
+            <p class="gameFlowContent">
+              The teams will be given a printout of the first question and would have to approach the moderator upon solving the question. If answered correctly, the moderator will provide them with the next question. The Game Moderators will release hints for questions depending on the participants engagement on a particular level. There will be bonus rounds which will give the participants an advantage. Likewise, there will be checkpoint rounds where participants will be eliminated.
+            </p>
+          </div>
+        </div>
+
+        <div class="basics-container">
+          <div class="basics-wrapper">
+            <h1 class="basics-title">The Basics</h1>
+            <div class="basics-content-wrapper">
+              <div class="basics-event-date">
+                <h2 class="basics-sub-headings">Event Dates</h2>
+                <hr class="basics-hr">
+                <p class="basics-details">
+                  17th December 2022 <br>
+                  and <br>
+                  18th December 2022
+                </p>
+              </div>
+              <div class="basics-team-size">
+                <h2 class="basics-sub-headings">Team Size</h2>
+                <hr class="basics-hr">
+                <p class="basics-details">
+                  1-4 members
+                </p>
+              </div>
+              <div class="basics-registration-fee">
+                <h2 class="basics-sub-headings">
+                  Registration Fee
+                </h2>
+                <hr class="basics-hr">
+                <p class="basics-details">
+                  ₹ 1 Crore
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prizes-container">
+          <div class="prizes-wrapper">
+            <h1 class="prizes-heading">Prizes</h1>
+
+            <div class="prizes-content-wrapper">
+              <div class="prizes-first">
+                <div class="prizes-circle">
+                  <div>
+                    1<span>st</span>
+                  </div>
+                </div>
+                <div class="prizes-content">
+                  ₹ 1 Crore
+                </div>
+              </div>
+              <div class="prizes-second-third">
+                <div class="prizes-second">
+                  <div class="prizes-circle">
+                    <div>
+                      2<span>nd</span>
+                    </div>
+                  </div>
+                  <div class="prizes-content">
+                    ₹ 1 Crore
+                  </div>
+                </div>
+                <div class="prizes-third">
+                  <div class="prizes-circle">
+                    <div>
+                      3<span>rd</span>
+                    </div>
+                  </div>
+                  <div class="prizes-content">
+                    ₹ 1 Crore
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section id='faq' class='flex-column faq-body-section'>
+          <h2>FAQ</h2>
+
+          <details>
+            <summary>Some random text</summary>
+            <p>
+              Some random answers
+            </p>
+          </details>
+          <details>
+            <summary>Some random text</summary>
+            <p>
+              Some random answers
+            </p>
+          </details>
+          <details>
+            <summary>Some random text</summary>
+            <p>
+              Some random answers
+            </p>
+          </details>
+          <details>
+            <summary>Some random text</summary>
+            <p>
+              Some random answers
+            </p>
+          </details>
+        </section>
+      </main>
+    {% endblock %}
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #252422;
+        font-family: "Montserrat";
+        color: #ffffff;
+      }
+      .logo-img {
+        width: 50px;
+        height: 50px;
+      }
+      .nav-tags {
+        list-style: none;
+        font-family: 'Montserrat';
+        font-weight: 900;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .navbar {
+        min-height: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 3px;
+        background: linear-gradient(90.05deg, #F3762F 0%, #EC364D 72.24%);
+        height: 75px;
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+      }
+
+      .nav-content.active {
+        z-index: 71324;
+      }
+
+      .hamburger {
+        visibility: hidden;
+        cursor: pointer;
+      }
+      .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: black;
+      }
+      @media(max-width: 768px) {
+        .hamburger {
+          visibility: visible;
+        }
+        .hamburger.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+        .hamburger.active .bar:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active .bar:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+        .navbar {
+          justify-content: space-between;
+        }
+        .nav-content {
+          position: fixed;
+          left: -200%;
+          top: 53px;
+          gap: 0;
+          flex-direction: column;
+          transition: 0.3s;
+          text-align: center;
+          width: 100%;
+          background: linear-gradient(90.05deg, #F3762F 0%, #EC364D 72.24%);
+        }
+        .nav-tags {
+          margin-left: -70px;
+          margin-top: 10px;
+          margin-bottom: 20px;
+          color: white;
+          cursor: pointer;
+        }
+        .nav-content.active {
+          left: 0;
+        }
+      }
+    </style>
+    {% block styles %}
+      <style>
+        .land-page {
+          display: flex;
+          justify-content: center;
+          margin-top: 40px;
+          line-height: 1.5;
+        }
+        .left-side {
+          display: grid;
+          color: white;
+          font-family: 'Montserrat';
+          margin-left: 180px;
+          margin-right: 40%;
+          font-weight: 500;
+        }
+        .right-side {
+          margin-top: 0;
+          margin-right: 100px;
+        }
+        .eclipse {
+          width: 100px;
+          height: 300px;
+          background: #e85906;
+          filter: blur(10px);
+          position: absolute;
+          height: 300px;
+          width: 200px;
+          right: 290px;
+          top: -50px;
+          border-radius: 0 0 10rem 10rem;
+          z-index: -1;
+
+        }
+        .blur-design {
+          width: 350px;
+          height: 300px;
+          background: rgba(255, 255, 255, 0.09);
+          backdrop-filter: blur(23.5px);
+          border-radius: 24px;
+          position: absolute;
+          top: 100px;
+          right: 180px;
+          outline: 26px solid #252422;
+        }
+        .play {
+          margin-top: 100px;
+          min-width: 150px;
+          min-height: 50px;
+          font-size: 25px;
+          font-weight: 700;
+          border-radius: 50px;
+          cursor: pointer;
+          background: #252422;
+          color: white;
+        }
+        .btn {
+          margin: 8px auto;
+          height: 3rem;
+          border: 0;
+          font-size: larger;
+          border-radius: 100px;
+          background: linear-gradient(90deg, rgba(243, 115, 49, 1) 0%, rgba(236, 54, 77, 1) 100%);
+          font-weight: bold;
+          transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
+        }
+
+        .btn:hover {
+          scale: 1.05;
+          box-shadow: 1px 1px 5px 1px rgba(243, 115, 49, 0.3);
+        }
+        .hackclub-flag {
+          display: flex;
+          height: 200px;
+          gap: 0;
+          margin-left: 0;
+        }
+        .hc-img {
+          margin: -34px;
+        }
+        @media(max-width: 768px) {
+          .right-side {
+            display: none;
+          }
+          .left-side {
+            margin: auto;
+          }
+          .play {
+            justify-content: center;
+          }
+        }
+
+        .GameStructureAndGameFlow {
+          background-color: #252525;
+          color: #ffffff;
+          font-family: "Montserrat", sans-serif;
+          font-style: normal;
+        }
+
+        .gameStructureHeading {
+          font-style: normal;
+          font-weight: 900;
+          font-size: 50px;
+          padding-top: 55px;
+          margin-left: 10%;
+          margin-bottom: 1%;
+        }
+
+        .gameFlowHeading {
+          font-style: normal;
+          font-weight: 900;
+          font-size: 50px;
+          text-align: right;
+          margin-right: 10%;
+          margin-bottom: 1%;
+        }
+
+        .gameStructureContent {
+          font-weight: 500;
+          font-size: 22px;
+          margin-left: 10%;
+          margin-right: 43%;
+          margin-bottom: 89px;
+          line-height: 39px;
+        }
+
+        .gameFlowContent {
+          font-weight: 500;
+          font-size: 22px;
+          text-align: right;
+          margin-right: 10%;
+          margin-left: 43%;
+          line-height: 39px;
+          padding-bottom: 55px;
+        }
+
+        .gameFlowContent,
+        .gameStructureContent {
+          text-align: justify;
+        }
+
+        .GameStructureAndGameFlow strong {
+          font-weight: 500;
+        }
+
+        @media(max-width:768px) {
+          .gameStructureContent,
+          .gameFlowContent {
+            text-align: justify;
+            margin-left: 10%;
+            margin-right: 10%;
+          }
+          .gameFlowHeading,
+          .gameStructureHeading {
+            text-align: center;
+            font-size: 2px;
+            margin-right: 10%;
+            margin-left: 10%;
+          }
+        }
+
+        @media(max-width:480px) {
+          .gameStructureHeading {
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 40px;
+          }
+          .gameFlowHeading {
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 40px;
+          }
+          .gameStructureContent {
+            font-size: 25px;
+          }
+          .gameFlowContent {
+            font-size: 25px;
+          }
+        }
+        .basics-container {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-content: center;
+          justify-content: center;
+        }
+
+        .basics-wrapper {
+          width: 90%;
+          height: 100%;
+        }
+
+        .basics-title {
+          color: white;
+        }
+
+        .basics-content-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          width: 100%;
+          height: 100%;
+          gap: 80px;
+        }
+
+        .basics-event-date {
+          background-image: url("/images/ellipse-top.png");
+          background-repeat: no-repeat;
+          background-size: 70%;
+          background-position: top left;
+          backdrop-filter: blur(23.5px);
+          background-color: rgba(255, 255, 255, 0.09);
+          border-radius: 20px;
+          width: 400px;
+          height: 300px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          text-align: center;
+          color: white;
+        }
+        .basics-team-size {
+          background-image: url("/images/ellipse-right.png");
+          background-repeat: no-repeat;
+          background-size: 90%;
+          background-position: top right;
+          backdrop-filter: blur(23.5px);
+          background-color: rgba(255, 255, 255, 0.09);
+          border-radius: 20px;
+          width: 400px;
+          height: 300px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          text-align: center;
+          color: white;
+        }
+        .basics-registration-fee {
+          background-image: url("/images/ellipse-bottom.png");
+          background-repeat: no-repeat;
+          background-size: 70%;
+          background-position: bottom left;
+          backdrop-filter: blur(23.5px);
+          background-color: rgba(255, 255, 255, 0.09);
+          border-radius: 20px;
+          width: 400px;
+          height: 300px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          text-align: center;
+          color: white;
+        }
+
+        .basics-hr {
+          border: 2px solid white;
+          border-radius: 10px;
+          text-align: center;
+          margin-top: -10px;
+          margin-bottom: 20px;
+          width: 50%;
+        }
+
+        .basics-sub-headings {
+          font-size: 40px;
+          margin: 0;
+          padding: 0;
+        }
+
+        .basics-details {
+          text-align: center;
+          font-size: 20px;
+          font-weight: 600;
+        }
+        .flex-column {
+          flex-direction: column;
+          display: flex;
+        }
+        .faq-body-section {
+          width: 80vw;
+          padding-top: 2rem;
+          padding-bottom: 2rem;
+          margin: 8%;
+        }
+
+        #faq h2 {
+          font-family: Montserrat;
+          font-size: 80px;
+          font-weight: 900;
+          line-height: 98px;
+          letter-spacing: 0;
+          text-align: left;
+          margin-left: 2rem;
+
+        }
+        @keyframes details-show {
+          from {
+            opacity: 0;
+            transform: var(--details-translate, translateY(-0.5em));
+          }
+        }
+
+        @keyframes details-hide {
+          from {
+            opacity: 1;
+            transform: initial;
+          }
+        }
+        details[open] > *:not(summary) {
+          animation: details-show 0.2s ease-in-out;
+        }
+
+        details[open] > summary {
+          color: #F37431;
+
+        }
+
+        details {
+          margin-left: 1.2rem;
+          margin-bottom: 2rem;
+        }
+
+        details > * {
+          font-size: 1.2rem;
+          padding: 1.4rem;
+          background: linear-gradient(90.69deg, #F37431 1.88%, #EC364D 98.48%);
+          color: white;
+          margin: 0;
+
+        }
+
+        details > ul {
+          padding-left: 4rem;
+        }
+
+        summary {
+          background: #454759;
+          padding: 1.4rem;
+          font-size: 1.2rem;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        .prizes-container {
+          /* margin: 10px 60px 10px 60px; */
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-content: center;
+          justify-content: center;
+        }
+
+        .prizes-wrapper {
+          width: 90%;
+          height: 100vh;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+        }
+
+        .prizes-heading {
+          color: white;
+        }
+
+        .prizes-content-wrapper {
+          width: 100%;
+          height: 50%;
+          background-color: rgba(255, 255, 255, 0.09);
+          background-size: 50%;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.13);
+          border-radius: 20px;
+          background-image: url("/assets/image/ellipse-top.png");
+          background-repeat: no-repeat;
+          backdrop-filter: blur(23.5px);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          flex-wrap: wrap;
+          font-weight: 800;
+          gap: 60px;
+          font-size: 40px;
+        }
+
+        .prizes-circle {
+          border: 3px solid white;
+          border-radius: 100%;
+          width: 100px;
+          height: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .prizes-circle div {
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+        }
+
+
+        .prizes-first,
+        .prizes-second,
+        .prizes-third {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+        }
+
+        .prizes-second-third {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 80px;
+        }
+
+        #prizes container span {
+          font-size: 20px;
+        }
+
+        @media only screen and (max-width: 800px) {
+          .prizes-container {
+            /* margin: 10px 60px 10px 60px; */
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+          }
+
+          .prizes-wrapper {
+            width: 90%;
+            height: 100%;
+          }
+
+          .prizes-content-wrapper {
+            width: 100%;
+            height: 50%;
+            background-color: rgba(255, 255, 255, 0.09);
+            background-size: 100%;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.13);
+            border-radius: 20px;
+            background-image: url("/images/ellipse-top.png");
+            background-repeat: no-repeat;
+            backdrop-filter: blur(23.5px);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            font-weight: 800;
+            gap: 30px;
+            font-size: 20px;
+          }
+
+          .prizes-circle {
+            border: 3px solid white;
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .prizes-circle div {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+          }
+
+
+          .prizes-first,
+          .prizes-second,
+          .prizes-third {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+          }
+
+          .prizes-second-third {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+          }
+        }
+      </style>
+    {% endblock %}
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav-content");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      hamburger.querySelectorAll(".nav-tags").forEach(n => n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+      }));
+    </script>
+  </body>
+</html>
