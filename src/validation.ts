@@ -1,11 +1,13 @@
-import path from "path";
+import { readFileSync } from "fs";
 import * as Yup from "yup";
 import { Config } from "./config";
 
 Config.validate();
 const config = Config.instance;
 
-const registered = require(path.join(process.cwd(), config.registeredUsersPath)) as string[];
+const registered = JSON.parse(
+    readFileSync(config.registeredUsersPath).toString("utf-8")
+) as string[];
 console.log(registered);
 
 export const signInSchema = Yup.object().shape({
