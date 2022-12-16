@@ -115,9 +115,11 @@ app.get("/play", (req, res) => {
     const username = req.session?.username;
     if (!username) return res.redirect("/");
 
-    const { level } = db.prepare("SELECT level FROM users WHERE username = ?").get(username);
-
-    const question = db.prepare("SELECT * FROM questions WHERE level = ?").get(level);
+    const question = db
+        .prepare(
+            "SELECT * FROM questions WHERE level = (SELECT level from users WHERE username = ?)"
+        )
+        .get(username);
 
     res.render("play", { username, question });
 });
@@ -165,10 +167,13 @@ app.get("/signout", (req, res) =>
 app.use(Express.static("public"));
 
 if (config.prod) {
-    const server = https.createServer({
-        key: readFileSync(config.sslKeyPath),
-        cert: readFileSync(config.sslCertPath),
-    });
+    const server = https.createServer(
+        {
+            key: readFileSync(config.sslKeyPath),
+            cert: readFileSync(config.sslCertPath),
+        },
+        app
+    );
 
     server.listen(443, () => {
         console.log(`Listening on port 443`);
