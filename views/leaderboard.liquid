@@ -1,102 +1,93 @@
 {% layout "index.liquid" %}
 
 {% block main %}
-  <div id="leaderboard">
-    <div class="container">
-      <div class="wrapper">
-        <h1 class="leaderboard">Leaderboard</h1>
+<div id="leaderboard">
+  <div class="container">
+    <div class="wrapper">
+      <h1 class="leaderboard">Leaderboard</h1>
 
-        <div class="table">
-          <div class="team-names">
-            <div class="team-wrapper">
-              <div class="teams">
-                Teamname 1
-              </div>
-              <div class="teams">
-                Teamname 2
-              </div>
-              <div class="teams">
-                Teamname 3
-              </div>
-              {% for uname in leaderboard %}
-                <div class="{% if uname == "Teamname 1" %}self{% endif %} teams">
-                  {{ uname }}
-                </div>
-              {% endfor %}
+      <div class="table">
+        <div class="team-names">
+          <div class="team-wrapper">
+            {% for uname in leaderboard %}
+            <div class="{% if uname == " Teamname 1" %}self{% endif %} teams">
+              {{ uname }}
             </div>
+            {% endfor %}
           </div>
         </div>
       </div>
     </div>
-
   </div>
+
+</div>
 {% endblock %}
 
 {% block styles %}
-  <style>
-    .container {
-      height: 65vh;
-      display: flex;
-      align-content: center;
-      justify-content: center;
-    }
+<style>
+  .container {
+    height: 65vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
 
-    .wrapper {
-      width: 90%;
-    }
+  .wrapper {
+    width: 90%;
+  }
 
-    .leaderboard {
-      color: white;
-      font-weight: 800;
-    }
+  .leaderboard {
+    color: white;
+    font-weight: 800;
+  }
 
-    .table {
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.09);
-      background-size: 60%;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.13);
-      border-radius: 20px;
-      background-image: url("/images/ellipse-top.png");
-      background-repeat: no-repeat;
-      backdrop-filter: blur(23.5px);
+  .table {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.09);
+    background-size: 60%;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.13);
+    border-radius: 20px;
+    background-image: url("/images/ellipse-top.webp");
+    background-repeat: no-repeat;
+    backdrop-filter: blur(23.5px);
 
-    }
+  }
 
-    .team-names {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  .team-names {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .team-wrapper {
-      width: 95%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      flex-direction: column;
-      gap: 20px;
-      color: white;
-      font-weight: 500;
-      font-size: 20px;
-      margin-top: 50px;
-    }
+  .team-wrapper {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 50px;
+  }
 
-    .team-names .teams {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 70px;
-      background: rgba(39, 33, 33, 0.7);
-      border-radius: 20px;
-    }
+  .team-names .teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    background: rgba(39, 33, 33, 0.7);
+    border-radius: 20px;
+  }
 
-    .self {
-      border: 2px solid #FFD700;
-    }
-  </style>
+  .self {
+    border: 2px solid #FFD700;
+  }
+</style>
 {% endblock %}

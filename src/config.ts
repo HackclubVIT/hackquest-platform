@@ -8,7 +8,8 @@ export class Config {
     public readonly sslKeyPath: string;
     public readonly sslCertPath: string;
     public readonly leaderboardCacheTime: number;
-    public readonly dbLogPath: string;
+    public readonly questionsBasePath: string;
+
     public readonly prod = process.env.NODE_ENV === "production";
 
     private constructor() {
@@ -22,7 +23,7 @@ export class Config {
 
         this.leaderboardCacheTime = parseInt(process.env.LEADERBOARD_CACHE_TIME!);
 
-        this.dbLogPath = process.env.DB_LOG_PATH!;
+        this.questionsBasePath = process.env.QUESTIONS_BASE_PATH!;
     }
 
     static get instance() {
@@ -38,7 +39,8 @@ export class Config {
         if (!process.env.SSL_CERT_PATH) throw new ConfigError("SSL_CERT_PATH is not set");
         if (!process.env.LEADERBOARD_CACHE_TIME)
             throw new ConfigError("LEADERBOARD_CACHE_TIME is not set");
-        if (!process.env.DB_LOG_PATH) throw new ConfigError("DB_LOG_PATH is not set");
+        if (!process.env.QUESTIONS_BASE_PATH)
+            throw new ConfigError("QUESTIONS_BASE_PATH is not set");
 
         this.validated = true;
     }

@@ -7,4 +7,6 @@ const config = Config.instance;
 
 export const db = sqlite(config.dbPath, { verbose: console.log });
 
+db.pragma("journal_mode = WAL");
+
 db.exec(readFileSync("./data/migration.sql").toString("utf-8"));

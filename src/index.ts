@@ -8,7 +8,7 @@ import { Config } from "./config";
 import { db } from "./db";
 import { hasRegisteredOnVITCEvents, isYupErr, signInSchema, signUpSchema } from "./validation";
 import { readFileSync } from "fs";
-import { cache } from "./util";
+import { base64Image, cache } from "./util";
 
 Config.validate();
 const config = Config.instance;
@@ -111,7 +111,7 @@ app.post("/signin", async (req, res) => {
     }
 });
 
-app.get("/play", (req, res) => {
+app.get("/play", async (req, res) => {
     const username = req.session?.username;
     if (!username) return res.redirect("/");
 
@@ -121,7 +121,13 @@ app.get("/play", (req, res) => {
         )
         .get(username);
 
-    res.render("play", { username, question });
+    if (!question) return res.render("play", { username, completed: true });
+
+    const text = question.question;
+    const image = await base64Image(`${config.questionsBasePath}${question.image}`);
+    const level = question.level;
+
+    res.render("play", { username, level, text, image });
 });
 
 app.post("/play", (req, res) => {

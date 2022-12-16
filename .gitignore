@@ -4,3 +4,4 @@ db.sqlite
 yarn-error.log
 /bin
 /data/registered.json
+/data/questions/
