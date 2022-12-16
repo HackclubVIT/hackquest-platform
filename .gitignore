@@ -1,6 +1,6 @@
 /node_modules
 .env
-db.sqlite
+db.sqlite*
 yarn-error.log
 /bin
 /data/registered.json

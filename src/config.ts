@@ -9,6 +9,7 @@ export class Config {
     public readonly sslCertPath: string;
     public readonly leaderboardCacheTime: number;
     public readonly questionsBasePath: string;
+    public readonly registeredUsersPath: string;
 
     public readonly prod = process.env.NODE_ENV === "production";
 
@@ -24,6 +25,8 @@ export class Config {
         this.leaderboardCacheTime = parseInt(process.env.LEADERBOARD_CACHE_TIME!);
 
         this.questionsBasePath = process.env.QUESTIONS_BASE_PATH!;
+
+        this.registeredUsersPath = process.env.REGISTERED_USERS_PATH!;
     }
 
     static get instance() {
@@ -41,6 +44,8 @@ export class Config {
             throw new ConfigError("LEADERBOARD_CACHE_TIME is not set");
         if (!process.env.QUESTIONS_BASE_PATH)
             throw new ConfigError("QUESTIONS_BASE_PATH is not set");
+        if (!process.env.REGISTERED_USERS_PATH)
+            throw new ConfigError("REGISTERED_USERS_PATH is not set");
 
         this.validated = true;
     }

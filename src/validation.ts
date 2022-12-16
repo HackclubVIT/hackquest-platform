@@ -1,5 +1,12 @@
+import path from "path";
 import * as Yup from "yup";
-const registered = require("../data/registered.json") as string[];
+import { Config } from "./config";
+
+Config.validate();
+const config = Config.instance;
+
+const registered = require(path.join(process.cwd(), config.registeredUsersPath)) as string[];
+console.log(registered);
 
 export const signInSchema = Yup.object().shape({
     username: Yup.string().required(),
