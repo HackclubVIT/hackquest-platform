@@ -124,7 +124,7 @@ app.get("/play", async (req, res) => {
     if (!question) return res.render("play", { username, completed: true });
 
     const text = question.question;
-    const image = await base64Image(`${config.questionsBasePath}${question.image}`);
+    const image = await base64Image(`${config.questionsBasePath}/${question.image}`);
     const level = question.level;
 
     res.render("play", { username, level, text, image });
