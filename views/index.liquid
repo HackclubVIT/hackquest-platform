@@ -75,8 +75,7 @@
       </div>
       <div class="right-side">
         <div>
-          <div class="eclipse"></div>
-          <div class="blur-design"></div>
+          <img src="../public/images/HQ-main.webp" alt="" width="500px" id="main-img">
         </div>
       </div>
     </div>
@@ -354,20 +353,20 @@
       justify-content: center;
       margin-top: 40px;
       line-height: 1.5;
+      flex-direction: row;
     }
 
     .left-side {
-      display: grid;
       color: white;
       font-family: 'Montserrat';
-      margin-left: 180px;
-      margin-right: 40%;
-      font-weight: 500;
+      text-align: justify;
+      padding: 5%;
     }
 
     .right-side {
       margin-top: 0;
       margin-right: 100px;
+      margin-left: 100px;
     }
 
     .eclipse {
@@ -398,14 +397,14 @@
     }
 
     .play {
-      margin-top: 100px;
+      margin-top: 30px;
       min-width: 150px;
       min-height: 50px;
       font-size: 25px;
       font-weight: 700;
       border-radius: 50px;
       cursor: pointer;
-      background: #252422;
+      background: linear-gradient(90.05deg, #F3762F 0%, #EC364D 72.24%);
       color: white;
     }
 
@@ -437,15 +436,35 @@
     }
 
     @media(max-width: 768px) {
+      html, body {
+        width: 100%;
+      }
+
+      .content-heading {
+        text-align: center;
+      }     
+        
+      .land-page {
+        flex-direction: column-reverse;
+      }
+
       .right-side {
-        display: none;
+        margin: 0 auto;
+        width: 80%;
+      }
+
+      #main-img {
+        width: 300px;
+        margin: 0 auto;
       }
 
       .left-side {
-        margin: auto;
+        margin: 0 auto;
+        width: 80%;
       }
 
       .play {
+        margin: 20% 25% 20% 25%;
         justify-content: center;
       }
     }
