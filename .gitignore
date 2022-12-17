@@ -5,3 +5,4 @@ yarn-error.log
 /bin
 /data/registered.json
 /data/questions/
+.vscode
