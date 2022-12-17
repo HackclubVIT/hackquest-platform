@@ -10,6 +10,8 @@ export class Config {
     public readonly leaderboardCacheTime: number;
     public readonly questionsBasePath: string;
     public readonly registeredUsersPath: string;
+    public readonly waiting: boolean;
+    public readonly frozen: boolean;
 
     public readonly prod = process.env.NODE_ENV === "production";
 
@@ -27,6 +29,10 @@ export class Config {
         this.questionsBasePath = process.env.QUESTIONS_BASE_PATH!;
 
         this.registeredUsersPath = process.env.REGISTERED_USERS_PATH!;
+
+        this.waiting = process.env.ALLOW_TO_PLAY === "false";
+
+        this.frozen = process.env.FROZEN === "true";
     }
 
     static get instance() {
@@ -46,6 +52,10 @@ export class Config {
             throw new ConfigError("QUESTIONS_BASE_PATH is not set");
         if (!process.env.REGISTERED_USERS_PATH)
             throw new ConfigError("REGISTERED_USERS_PATH is not set");
+        if (process.env.ALLOW_TO_PLAY !== "true" && process.env.ALLOW_TO_PLAY !== "false")
+            throw new ConfigError("ALLOW_TO_PLAY must be set to either true or false");
+        if (process.env.FROZEN !== "true" && process.env.FROZEN !== "false")
+            throw new ConfigError("FROZEN must be set to either true or false");
 
         this.validated = true;
     }

@@ -7,7 +7,7 @@ import { Liquid } from "liquidjs";
 import { Config } from "./config";
 import { db } from "./db";
 import { hasRegisteredOnVITCEvents, isYupErr, signInSchema, signUpSchema } from "./validation";
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { base64Image, cache } from "./util";
 
 Config.validate();
@@ -115,6 +115,10 @@ app.get("/play", async (req, res) => {
     const username = req.session?.username;
     if (!username) return res.redirect("/");
 
+    if (config.waiting) {
+        return res.render("play", { username, waiting: true });
+    }
+
     const question = db
         .prepare(
             "SELECT * FROM questions WHERE level = (SELECT level from users WHERE username = ?)"
@@ -123,23 +127,30 @@ app.get("/play", async (req, res) => {
 
     if (!question) return res.render("play", { username, completed: true });
 
-    const text = question.question;
-    const image = await base64Image(`${config.questionsBasePath}/${question.image}`);
-    const level = question.level;
+    question.image = await base64Image(`${config.questionsBasePath}/${question.image}`);
 
-    res.render("play", { username, level, text, image });
+    res.render("play", { username, question });
 });
 
-app.post("/play", (req, res) => {
+app.post("/play", async (req, res) => {
     const username = req.session?.username;
     if (!username) return res.redirect("/");
+
+    if (config.waiting) return res.redirect("/");
 
     const { level } = db.prepare("SELECT level FROM users WHERE username = ?").get(username);
 
     const question = db.prepare("SELECT * FROM questions WHERE level = ?").get(level);
 
-    if (question?.answer !== req.body.answer)
+    if (!question) {
+        return res.redirect("/");
+    }
+
+    if (question.answer !== req.body.answer) {
+        question.image = await base64Image(`${config.questionsBasePath}/${question.image}`);
+        console.log(question.answer, req.body.answer);
         return res.render("play", { username, question, error: "Wrong answer" });
+    }
 
     db.prepare("UPDATE users SET level = level + 1 WHERE username = ?").run(username);
     db.prepare("UPDATE users SET level_reached_at = ? WHERE username = ?").run(

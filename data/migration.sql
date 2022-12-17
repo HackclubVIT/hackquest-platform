@@ -11,6 +11,6 @@ CREATE TABLE
     IF NOT EXISTS questions(
         level INTEGER PRIMARY KEY,
         question TEXT,
-        image TEXT,
-        answer TEXT
+        image TEXT NOT NULL,
+        answer TEXT NOT NULL
     );

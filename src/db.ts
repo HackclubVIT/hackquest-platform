@@ -17,7 +17,7 @@ const questions = JSON.parse(
     readFileSync(`${config.questionsBasePath}/questions.json`).toString("utf-8")
 ) as {
     level: number;
-    question: string;
+    question?: string;
     image: string;
     answer: string;
 }[];
