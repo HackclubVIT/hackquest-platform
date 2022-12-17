@@ -5,24 +5,12 @@
   <h1>Leaderboard</h1>
   <div id="container">
     {% for uname in leaderboard %}
+    {% unless uname=='admin' %}
     <div {% if uname==username %}id="self" {% endif %}class="team">
       {{ uname }}
     </div>
+    {% endunless %}
     {% endfor %}
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
-    <div class="team">Sample</div>
   </div>
 </main>
 {% endblock %}
