@@ -16,4 +16,9 @@ export const cache = <F extends (...args: any[]) => any>(fn: F, time: number) =>
 export const base64Image = (filepath: string) =>
     readFile(filepath)
         .then(buf => buf.toString("base64"))
-        .then(base64 => `data:image/webp;base64,${base64}`);
+        .then(
+            base64 =>
+                `data:image/${
+                    filepath.split(".").at(-1)?.toLocaleLowerCase() || "webp"
+                };base64,${base64}`
+        );
