@@ -2,13 +2,13 @@ import bcrypt from "bcrypt";
 import SqliteStoreFactory from "better-sqlite3-session-store";
 import Express, { urlencoded } from "express";
 import session from "express-session";
+import { readFileSync } from "fs";
 import https from "https";
 import { Liquid } from "liquidjs";
 import { Config } from "./config";
 import { db } from "./db";
-import { hasRegisteredOnVITCEvents, isYupErr, signInSchema, signUpSchema } from "./validation";
-import { readFileSync, writeFileSync } from "fs";
 import { base64Image, cache } from "./util";
+import { hasRegisteredOnVITCEvents, isYupErr, signInSchema, signUpSchema } from "./validation";
 
 Config.validate();
 const config = Config.instance;
