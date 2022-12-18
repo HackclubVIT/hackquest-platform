@@ -12,11 +12,13 @@
         <th>Level</th>
       </tr>
       {% for user in leaderboard %}
+      {% unless user.username == 'admin' %}
       <tr>
         <td>{{ forloop.index }}</td>
         <td>{{ user.username | escape_once }}</td>
         <td>{{ user.level }} </td>
       </tr>
+      {% endunless %}
       {% endfor %}
     </table>
   </div>
