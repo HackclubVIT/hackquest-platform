@@ -11,13 +11,16 @@
         <th>Username</th>
         <th>Level</th>
       </tr>
+      {% assign ignored ="admin,21bai1056" | split:"," %}
+      {% assign rank = 1 %}
       {% for user in leaderboard %}
-      {% unless user.username == 'admin' %}
+      {% unless ignored contains user.username %}
       <tr>
-        <td>{{ forloop.index0 }}</td>
+        <td>{{ rank }}</td>
         <td>{{ user.username | escape_once }}</td>
         <td>{{ user.level }} </td>
       </tr>
+      {% assign rank = rank | plus:1 %}
       {% endunless %}
       {% endfor %}
     </table>
