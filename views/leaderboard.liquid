@@ -3,6 +3,7 @@
 {% block main %}
 <main>
   <h1>Leaderboard</h1>
+  <p>Updates every 1 minute</p>
   <div id="container">
     {% for uname in leaderboard %}
     {% unless uname == 'admin' %}
@@ -22,6 +23,10 @@
   }
 
   h1 {
+    text-align: center;
+  }
+
+  h1+p {
     text-align: center;
   }
 
