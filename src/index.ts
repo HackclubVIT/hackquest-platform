@@ -148,7 +148,6 @@ app.post("/play", async (req, res) => {
 
     if (question.answer !== req.body.answer) {
         question.image = await base64Image(`${config.questionsBasePath}/${question.image}`);
-        console.log(question.answer, req.body.answer);
         return res.render("play", { username, question, error: "Wrong answer" });
     }
 
