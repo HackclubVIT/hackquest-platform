@@ -14,7 +14,7 @@
       {% for user in leaderboard %}
       {% unless user.username == 'admin' %}
       <tr>
-        <td>{{ forloop.index - 1 }}</td>
+        <td>{{ forloop.index0 }}</td>
         <td>{{ user.username | escape_once }}</td>
         <td>{{ user.level }} </td>
       </tr>
