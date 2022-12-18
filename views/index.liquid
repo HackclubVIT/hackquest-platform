@@ -31,7 +31,7 @@
           <a href="/leaderboard">Leaderboard</a>
         </li>
         {% if username != null %}
-        <li class="nav-tags">{{ username }}</li>
+        <li class="nav-tags">{{ username | escape_once }}</li>
         <li class="nav-tags">
           <a href="/signout">Sign out</a>
         </li>
