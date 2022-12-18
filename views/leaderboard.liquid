@@ -15,7 +15,7 @@
       {% assign rank = 1 %}
       {% for user in leaderboard %}
       {% unless ignored contains user.username %}
-      <tr>
+      <tr {%if user.username==username %}id="self" {%endif%}>
         <td>{{ rank }}</td>
         <td>{{ user.username | escape_once }}</td>
         <td>{{ user.level }} </td>
@@ -79,6 +79,18 @@
   td:last-child,
   th:last-child {
     border-radius: 0 1rem 1rem 0;
+  }
+
+  #self>td {
+    border-bottom: 2px solid #FFD700;
+    border-top: 2px solid #FFD700;
+  }
+
+  #self>td:first-child {
+    border-left: 2px solid #FFD700;
+  }
+  #self>td:last-child {
+    border-right: 2px solid #FFD700;
   }
 </style>
 {% endblock %}
