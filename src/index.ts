@@ -163,14 +163,14 @@ app.post("/play", async (req, res) => {
 const leaderboardCache = cache(
     () =>
         db
-            .prepare("SELECT username FROM users ORDER BY level DESC, level_reached_at ASC")
-            .all()
-            .map(user => user.username),
+            .prepare("SELECT username,level FROM users ORDER BY level DESC, level_reached_at ASC")
+            .all(),
     config.leaderboardCacheTime
 );
 app.get("/leaderboard", (req, res) => {
     const username = req.session?.username;
     const leaderboard = leaderboardCache();
+    console.log(leaderboard);
     res.render("leaderboard", { username, leaderboard });
 });
 

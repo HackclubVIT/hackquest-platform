@@ -3,15 +3,22 @@
 {% block main %}
 <main>
   <h1>Leaderboard</h1>
-  <p>Updates every 1 minute</p>
-  <div id="container">
-    {% for uname in leaderboard %}
-    {% unless uname == 'admin' %}
-    <div {% if uname==username %}id="self" {% endif %}class="team">
-      {{ uname | escape_once }}
-    </div>
-    {% endunless %}
-    {% endfor %}
+  <p>(Updates every minute)</p>
+  <div id="backdrop">
+    <table>
+      <tr>
+        <th>Rank</th>
+        <th>Username</th>
+        <th>Level</th>
+      </tr>
+      {% for user in leaderboard %}
+      <tr>
+        <td>{{ forloop.index }}</td>
+        <td>{{ user.username | escape_once }}</td>
+        <td>{{ user.level }} </td>
+      </tr>
+      {% endfor %}
+    </table>
   </div>
 </main>
 {% endblock %}
@@ -22,35 +29,51 @@
     margin: 3vw;
   }
 
-  h1 {
-    text-align: center;
-  }
-
+  h1,
   h1+p {
     text-align: center;
   }
 
-  #container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+  h1+p {
+    font-size: 0.9rem;
+  }
+
+  #backdrop {
+    background: rgba(255, 255, 255, 0.09) url('/images/ellipse-top.webp') no-repeat left top / 60%;
+    border-radius: 1rem;
     padding: 2rem;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.09) url('/images/ellipse-top.webp') no-repeat left top / 60%;
   }
 
-  .team {
-    background: rgba(39, 33, 33, 0.7);
-    padding: 1rem;
-    border-radius: 1rem;
+  table {
+    border-collapse: separate;
+    border-spacing: 0 1rem;
     width: 100%;
-    text-align: center;
   }
 
-  #self {
-    border: 2px solid #FFD700;
+  tr {
+    background: rgba(39, 33, 33, 0.7);
+  }
+
+  td,
+  th {
+    padding: 1rem;
+    text-align: center;
+    text-overflow: ellipsis;
+  }
+
+  th {
+    font-size: 1.3rem;
+  }
+
+  td:first-child,
+  th:first-child {
+    border-radius: 1rem 0 0 1rem;
+  }
+
+  td:last-child,
+  th:last-child {
+    border-radius: 0 1rem 1rem 0;
   }
 </style>
 {% endblock %}
