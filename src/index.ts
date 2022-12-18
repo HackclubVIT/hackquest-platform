@@ -17,7 +17,7 @@ const app = Express();
 
 app.use(urlencoded({ extended: true }));
 
-app.engine("liquid", new Liquid().express());
+app.engine("liquid", new Liquid({ cache: config.prod }).express());
 app.set("views", "./views");
 app.set("view engine", "liquid");
 

@@ -5,9 +5,9 @@
   <h1>Leaderboard</h1>
   <div id="container">
     {% for uname in leaderboard %}
-    {% unless uname=='admin' %}
+    {% unless uname == 'admin' %}
     <div {% if uname==username %}id="self" {% endif %}class="team">
-      {{ uname }}
+      {{ uname | escape_once }}
     </div>
     {% endunless %}
     {% endfor %}
